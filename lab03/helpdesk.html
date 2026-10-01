@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CWA Help Desk appointment</title>
+</head>
+<body>
+
+    <div class="form-container" id="formContainer">
+        <div class="logo-container">
+            <a href="http://www.swin.edu.au" target="_blank" title="Swinburne University">
+                <img src="logo.png" alt="Swinburne University Of Technology" />
+            </a>
+        </div>
+
+        <h1>CWA Help Desk Appointment</h1>
+        <p>The Help Desk is located in ATC620. Open 10:30 to 19:00 Monday to Friday.</p>
+        <p>Check Blackboard for when CWA tutors will be there.</p>
+
+         <form action="#" method="post">
+            
+            <fieldset>
+                <legend>Student details</legend>
+                <div class="form-row">
+                    <label for="studentId">Student ID</label>
+                    <input 
+                        type="text" 
+                        id="studentId" 
+                        name="studentId" 
+                        required 
+                        pattern="\d{7,10}" 
+                        title="Student ID must be between 7 and 10 digits" 
+                    />
+                </div>
+            
+                <div class="form-row">
+                    <label for="givenName">Given Name</label>
+                    <input 
+                        type="text" 
+                        id="givenName" 
+                        name="givenName" 
+                        maxlength="15" 
+                        required 
+                        pattern="[A-Za-z]+" 
+                        title="Only alphabetical characters allowed (up to 15 characters)" 
+                    />
+
+                    <label for="familyName" style="margin-left: 10px;">Family Name</label>
+                    <input 
+                        type="text" 
+                        id="familyName" 
+                        name="familyName" 
+                        maxlength="15" 
+                        required 
+                        pattern="[A-Za-z]+" 
+                        title="Only alphabetical characters allowed (up to 15 characters)" 
+                    />
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Your unit</legend>
+                <div class="form-row">
+                    <input type="radio" id="unit1" name="unit" value="COS10011" required>
+                    <label for="unit1" class="inline-label">COS10011</label>
+
+                    <input type="radio" id="unit2" name="unit" value="COS60004">
+                    <label for="unit2" class="inline-label">COS60004</label>
+
+                    <input type="radio" id="unit3" name="unit" value="COS60007">
+                    <label for="unit3" class="inline-label">COS60007</label>
+                </div>
+
+                <div class="form-row" style="margin-top: 10px;">
+                    <label for="tutor">Your Tutor</label>
+                    <select id="tutor" name="tutor" required>
+                        <option value="">Please Select</option>
+                        <option value="john">John Smith</option>
+                        <option value="sarah">Sarah Connor</option>
+                        <option value="michael">Michael Chang</option>
+                        <option value="emma">Emma Watson</option>
+                    </select>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Issue</legend>
+                <div class="form-row">
+                    <input type="checkbox" id="issueHtml" name="issue" value="HTML" checked>
+                    <label for="issueHtml" class="inline-label">HTML</label>
+
+                    <input type="checkbox" id="issueCss" name="issue" value="CSS">
+                    <label for="issueCss" class="inline-label">CSS</label>
+
+                    <input type="checkbox" id="issueJs" name="issue" value="JavaScript">
+                    <label for="issueJs" class="inline-label">JavaScript</label>
+
+                    <input type="checkbox" id="issuePhp" name="issue" value="PHP">
+                    <label for="issuePhp" class="inline-label">PHP</label>
+
+                    <input type="checkbox" id="issueMysql" name="issue" value="MySQL">
+                    <label for="issueMysql" class="inline-label">MySQL</label>
+                </div>
+
+                <div class="form-row" style="margin-top: 10px;">
+                    <label for="issueDesc">Description of Issue</label>
+                    <textarea 
+                        id="issueDesc" 
+                        name="issueDescription" 
+                        placeholder="Write description of your problem here..."></textarea>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Preferred Date / Time</legend>
+                <div class="form-row">
+                    <label for="prefDate" style="display: inline-block; width: 45px;">Date</label>
+                    <input 
+                        type="text" 
+                        id="prefDate" 
+                        name="prefDate" 
+                        placeholder="dd/mm/yyyy" 
+                        pattern="\d{2}/\d{2}/\d{4}" 
+                        title="Please match the requested format: dd/mm/yyyy" 
+                    />
+                </div>
+
+                <div class="form-row">
+                    <label for="prefTime" style="display: inline-block; width: 45px;">Time</label>
+                    <input 
+                        type="text" 
+                        id="prefTime" 
+                        name="prefTime" 
+                        placeholder="00:00" 
+                        pattern="\d{2}:\d{2}" 
+                        title="Please match the requested format: 00:00" 
+                    />
+                </div>
+            </fieldset>
+
+            <div class="buttons">
+                <input type="submit" value="Book">
+                <input type="reset" value="Reset form">
+            </div>
+
+        </form>
+    </div> 
+
+    
+    <div id="resultView" hidden>
+        <h1>HTML - Form Data Extraction</h1>
+        <hr>
+        <p style="text-align: center; margin-bottom: 6px;">Table of data pairs submitted to the server</p>
+
+        <table id="resultTable" border="1">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Form Variable 'name'</th>
+                    <th>Submitted 'value'</th>
+                </tr>
+            </thead>
+            <tbody id="resultBody"></tbody>
+        </table>
+
+        <p>Are all name value pairs here? Anything missing?</p>
+        <button type="button" onclick="showForm()">Back</button>
+    </div>
+
+    
+
+</body>
+</html>
